@@ -21,7 +21,10 @@ def draw_line(node1, node2, special):
 
 
 def visualize(nodes, edges, route):
+    plt.title("Route")
     plt.axis('equal')
+    plt.xlabel('Longtitude')
+    plt.ylabel('Latitude')
     for e in edges:
         try: draw_line(nodes[e.n1], nodes[e.n2], special=False)
         except: pass
