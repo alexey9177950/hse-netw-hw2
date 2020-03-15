@@ -35,4 +35,5 @@ if __name__ == '__main__':
     print("Routes were written to", routes_path)
 
     if args.vis_flag:
-        visualize(nodes, edges, routes[args.source_node][args.dest_node])
+        id_to_ind = dict((j.num, i) for i, j in enumerate(nodes))
+        visualize(nodes, edges, routes[id_to_ind[args.source_node]][id_to_ind[args.dest_node]])
