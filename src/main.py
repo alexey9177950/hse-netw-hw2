@@ -26,11 +26,11 @@ if __name__ == '__main__':
     nodes, edges = parse_graph(args.topology)
 
     fname = get_name_from_path(args.topology)
-    dist_path = os.path.join("results", fname + "_dist.csv")
+    dist_path = os.path.join("tests", fname + "_topo.csv")
     nodes, edges = print_distances(nodes, edges, dist_path)
     print("Distances were written to", dist_path)
 
-    routes_path = os.path.join("results", fname + "_routes.csv")
+    routes_path = os.path.join("tests", fname + "_routes.csv")
     dists, routes = print_routes(nodes, edges, routes_path, args.reserve_flag)
     print("Routes were written to", routes_path)
 
