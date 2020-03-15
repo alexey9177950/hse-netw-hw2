@@ -14,6 +14,19 @@ def draw_node(node, very=False, node_type=None):
 
 
 def draw_line(node1, node2, special):
+    # in case of crossing map's edge
+    if node1.x > node2.x:
+        node1, node2 = node2, node1
+    left_marg = node1.x - (-180)
+    right_marg = 180 - node2.x
+    if left_marg + right_marg < node2.x - node1.x:
+        bord_height = (node1.y * left_margin + node2.y * right_margin) / (left_margin + right_margin)
+        left_node = Node(-180, bord_height)
+        right_node = Node(180, bord_height)
+        draw_line(left_node, node1, special)
+        draw_line(node2, right_node, special)
+        return
+
     if special:
         plt.plot([node1.x, node2.x], [node1.y, node2.y], 'r')
     else:
