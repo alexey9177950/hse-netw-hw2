@@ -39,7 +39,7 @@ def print_distances(nodes, edges, fname):
               id2, node2.label, node2.x, node2.y,
               *dist_delay(node1, node2),
               sep=',', file=f_out)
-        w_edges.append(Edge(ind1, ind2, dist))
+        w_edges.append(Edge(ind1, ind2, delay))
 
     return nodes, w_edges
 
